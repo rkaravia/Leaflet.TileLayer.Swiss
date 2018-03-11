@@ -1,0 +1,18 @@
+{
+  "name": "leaflet-tilelayer-swiss",
+  "version": "0.1.0",
+  "description": "Leaflet.TileLayer.Swiss.js is a Leaflet plugin for creating tile layers from swisstopo, the Swiss Federal Office of Topography.",
+  "main": "Leaflet.TileLayer.Swiss.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rzoller/Leaflet.TileLayer.Swiss"
+  },
+  "keywords": [],
+  "author": "Roman Zoller",
+  "license": "ISC",
+  "peerDependencies": {
+    "leaflet": "^1.3.1",
+    "proj4": "^2.4.4",
+    "proj4leaflet": "^1.0.2"
+  }
+}
