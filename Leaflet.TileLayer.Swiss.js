@@ -1,17 +1,15 @@
 (function (factory, window) {
     if (typeof define === 'function' && define.amd) {
         // AMD
-        define(['leaflet'], factory);
+        define(['leaflet', 'proj4leaflet'], factory);
     } else if (typeof exports === 'object') {
         // Common JS
-        module.exports = factory(require('leaflet'));
+        module.exports = factory(require('leaflet'), require('proj4leaflet'));
+    } else if (typeof window !== 'undefined' && window.L && window.L.Proj) {
+        // Browser globals
+        window.L.TileLayer.Swiss = factory(window.L, window.L.Proj);
     }
-
-    if (typeof window !== 'undefined' && window.L) {
-        // window.L
-        window.L.TileLayer.Swiss = factory(window.L);
-    }
-}(function (L) {
+}(function (L, Proj) {
     'use strict';
 
     // Definition for projected coordinate system CH1903+ / LV95 (EPSG:2056)
@@ -31,7 +29,7 @@
     var resolutions = [4000, 3750, 3500, 3250, 3000, 2750, 2500, 2250, 2000, 1750, 1500, 1250, 1000,
         750, 650, 500, 250, 100, 50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1];
 
-    var crs = new L.Proj.CRS(epsgCode, proj4Definition, {
+    var crs = new Proj.CRS(epsgCode, proj4Definition, {
         bounds: bounds,
         origin: [topLeft.x, topLeft.y],
         resolutions: resolutions
