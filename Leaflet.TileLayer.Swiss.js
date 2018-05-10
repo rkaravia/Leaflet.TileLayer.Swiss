@@ -47,7 +47,7 @@
 
     var Swiss = L.TileLayer.extend({
         options: {
-            attribution: 'Map data &copy; swisstopo',
+            attribution: '<a href="https://www.swisstopo.admin.ch/en/home.html">swisstopo</a>',
             bounds: latLngBounds,
             format: 'jpeg',
             layer: 'ch.swisstopo.pixelkarte-farbe',
