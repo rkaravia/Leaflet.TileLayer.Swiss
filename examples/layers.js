@@ -5,7 +5,7 @@ var WMTS_CAPABILITIES_URL = 'https://wmts.geo.admin.ch/EPSG/2056/1.0.0/WMTSCapab
 var TABLE_COLUMNS = [
     {
         caption: 'Name',
-        attribute: 'name'
+        attribute: 'layer'
     },
     {
         caption: 'Title',
@@ -32,6 +32,13 @@ var TABLE_COLUMNS = [
         attribute: 'codepen'
     }
 ];
+
+var DEFAULT_OPTIONS = {
+    format: 'jpeg',
+    layer: 'ch.swisstopo.pixelkarte-farbe',
+    maxZoom: 27,
+    timestamp: 'current'
+}
 
 var layers;
 
@@ -111,8 +118,8 @@ function parseWMTSCapabilities(capabilitiesXML) {
         return {
             description: layer['ows:Abstract']['#text'],
             format: layer.ResourceURL['@attributes'].template.split('.').pop(),
+            layer: layer['ows:Identifier']['#text'],
             maxZoom: layer.TileMatrixSetLink.TileMatrixSet['#text'].split('_').pop(),
-            name: layer['ows:Identifier']['#text'],
             timestamp: layer.Dimension.Default['#text'],
             timestamps: getAllTimestamps(layer.Dimension.Value),
             title: layer['ows:Title']['#text']
@@ -121,12 +128,13 @@ function parseWMTSCapabilities(capabilitiesXML) {
 }
 
 function tileLayerOptions(layer) {
-    return {
-        format: layer.format,
-        layer: layer.name,
-        maxZoom: layer.maxZoom,
-        timestamp: layer.timestamp
-    };
+    var options = {};
+    for (var option in DEFAULT_OPTIONS) {
+        if (layer[option] != DEFAULT_OPTIONS[option]) {
+            options[option] = layer[option];
+        }
+    }
+    return options;
 }
 
 function addPreviewLink(layer) {
