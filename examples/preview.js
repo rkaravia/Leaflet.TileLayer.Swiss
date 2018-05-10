@@ -12,7 +12,7 @@ if (options.format == 'png') {
 }
 
 var map = L.map('map', {
-    crs: L.TileLayer.Swiss.crs,
+    crs: L.TileLayer.Swiss.EPSG_2056,
     layers: layers,
     maxBounds: L.TileLayer.Swiss.latLngBounds
 });

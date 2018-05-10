@@ -8,7 +8,7 @@ var swissImage = L.tileLayer.swiss({
 });
 
 var map = L.map('map', {
-    crs: L.TileLayer.Swiss.crs,
+    crs: L.TileLayer.Swiss.EPSG_2056,
     layers: [swissMap],
     maxBounds: L.TileLayer.Swiss.latLngBounds
 });

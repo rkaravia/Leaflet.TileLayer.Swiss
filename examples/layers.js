@@ -157,7 +157,7 @@ function editOnCodepen(layerId) {
         'var options = ' + JSON.stringify(options, null, 2) + ';',
         '',
         'var map = L.map("map", {',
-        '    crs: L.TileLayer.Swiss.crs,',
+        '    crs: L.TileLayer.Swiss.EPSG_2056,',
         '    layers: [' + mapLayers + '],',
         '    maxBounds: L.TileLayer.Swiss.latLngBounds',
         '});',
@@ -174,7 +174,7 @@ function editOnCodepen(layerId) {
             'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js',
             'https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.4/proj4.js',
             'https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js',
-            'https://rawgit.com/rzoller/Leaflet.TileLayer.Swiss/master/Leaflet.TileLayer.Swiss.js'
+            'https://rzoller.ch/Leaflet.TileLayer.Swiss/Leaflet.TileLayer.Swiss.js'
         ].join(';')
     };
 
