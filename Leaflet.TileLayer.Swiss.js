@@ -1,3 +1,8 @@
+/*!
+ * Leaflet.TileLayer.Swiss (https://github.com/rzoller/Leaflet.TileLayer.Swiss)
+ * Copyright (c) 2018 Roman Zoller
+ * License: MIT (https://rzoller.ch/Leaflet.TileLayer.Swiss/LICENSE)
+ */
 (function (factory, window) {
     if (typeof define === 'function' && define.amd) {
         // AMD
