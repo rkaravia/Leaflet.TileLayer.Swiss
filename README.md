@@ -127,7 +127,7 @@ taught me how to use swisstopo layers in Leaflet a few year ago.
   [source](https://github.com/geoadmin/ol3) of the official swisstopo API based
   on OpenLayers 3
 - Terms of service for the
-  [free](https://www.swisstopo.admin.ch/en/home/meta/conditions/geoservices/geoservice-license.html)
+  [free](https://www.swisstopo.admin.ch/en/home/meta/conditions/geoservices/free-geoservice-license.html)
   and
-  [paid](https://www.swisstopo.admin.ch/en/home/meta/conditions/geoservices/free-geoservice-license.html)
+  [paid](https://www.swisstopo.admin.ch/en/home/meta/conditions/geoservices/geoservice-license.html)
   tiers of swisstopo
