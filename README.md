@@ -39,7 +39,7 @@ Most overlay layers are freely accessible, see
 
 ### Basic example
 
-```
+```javascript
 // Create a map with LV95 (EPSG:2056) CRS and default base map layer
 var map = L.map('map', {
     crs: L.TileLayer.Swiss.EPSG_2056,
@@ -55,7 +55,7 @@ map.setView(L.TileLayer.Swiss.unproject_2056(L.point([2600000, 1200000])), 16);
 
 Options are shown with their default values.
 
-```
+```javascript
 L.tileLayer.swiss({
     // Coordinate reference system. EPSG_2056 and EPSG_21871 are available.
     crs: L.TileLayer.Swiss.EPSG_2056
@@ -84,7 +84,7 @@ Two CRS are commonly used in Switzerland:
 
 In order to use EPSG:21781, both map and layer CRS have to be adapted:
 
-```
+```javascript
 var map = L.map('map', {
     crs: L.TileLayer.Swiss.EPSG_21781,
     layers: [L.tileLayer.swiss({
