@@ -77,7 +77,7 @@
 
     var Swiss = L.TileLayer.extend({
         options: {
-            attribution: '<a href="https://www.swisstopo.admin.ch/en/home.html">swisstopo</a>',
+            attribution: '<a href="https://www.swisstopo.admin.ch/en/home.html" target="_blank">swisstopo</a>',
             bounds: latLngBounds,
             crs: EPSG_2056,
             format: 'jpeg',
