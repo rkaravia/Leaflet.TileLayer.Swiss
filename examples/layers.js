@@ -170,7 +170,7 @@ function editOnCodepen(layerId) {
         '    maxBounds: L.TileLayer.Swiss.latLngBounds',
         '});',
         '',
-        'map.setView(L.TileLayer.Swiss.unproject(L.point([2600000, 1200000])), 16);'
+        'map.setView(L.TileLayer.Swiss.unproject_2056(L.point([2600000, 1200000])), 16);'
     ].join('\n');
 
     var codepenOptions = {
