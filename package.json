@@ -2,17 +2,33 @@
   "name": "leaflet-tilelayer-swiss",
   "version": "1.0.1",
   "description": "Leaflet.TileLayer.Swiss is a Leaflet plugin for displaying national maps of Switzerland using WMTS services of swisstopo.",
-  "main": "Leaflet.TileLayer.Swiss.js",
+  "source": "src/index.js",
+  "main": "dist/Leaflet.TileLayer.Swiss.js",
+  "unpkg": "dist/Leaflet.TileLayer.Swiss.umd.js",
+  "scripts": {
+    "build": "microbundle --name L.TileLayer.Swiss --format cjs,umd --globals leaflet=L,proj4leaflet=L.Proj",
+    "eslint": "eslint .",
+    "prepare": "npm run build"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/rzoller/Leaflet.TileLayer.Swiss"
   },
-  "keywords": [],
+  "files": [
+    "/src",
+    "/dist"
+  ],
   "author": "Roman Zoller",
   "license": "MIT",
   "peerDependencies": {
     "leaflet": "^1.4.0",
     "proj4": "^2.5.0",
     "proj4leaflet": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "microbundle": "^0.9.0"
   }
 }
