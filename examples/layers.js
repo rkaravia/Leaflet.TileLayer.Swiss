@@ -175,14 +175,14 @@ function editOnCodepen(layerId) {
 
     var codepenOptions = {
         css: css,
-        css_external: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css',
+        css_external: 'https://unpkg.com/leaflet@1.4.0/dist/leaflet.css',
         html: '<div id="map"></div>',
         js: js,
         js_external: [
-            'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js',
+            'https://unpkg.com/leaflet@1.4.0/dist/leaflet.js',
             'https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.4/proj4.js',
             'https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js',
-            'https://rzoller.ch/Leaflet.TileLayer.Swiss/Leaflet.TileLayer.Swiss.js'
+            'https://unpkg.com/leaflet-tilelayer-swiss@1.0.1/Leaflet.TileLayer.Swiss.js'
         ].join(';')
     };
 
