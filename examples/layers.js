@@ -147,35 +147,39 @@ function editOnCodepen(layerId) {
         'html,',
         'body,',
         '#map {',
-        '    width: 100%;',
-        '    height: 100%;',
-        '    margin: 0;',
+        '  width: 100%;',
+        '  height: 100%;',
+        '  margin: 0;',
         '}'
     ].join('\n');
 
     var options = tileLayerOptions(layers[layerId]);
 
-    var mapLayers = 'L.tileLayer.swiss(options)';
+    var mapLayers = 'new Swiss(options)';
     if (options.format == 'png') {
-        mapLayers = 'L.tileLayer.swiss(), ' + mapLayers;
+        mapLayers = 'new Swiss(), ' + mapLayers;
         options.opacity = 0.5;
     }
 
     var js = [
         'var options = ' + JSON.stringify(options, null, 2) + ';',
         '',
+        'var Swiss = L.TileLayer.Swiss;',
+        '',
         'var map = L.map("map", {',
-        '    crs: L.TileLayer.Swiss.EPSG_2056,',
-        '    layers: [' + mapLayers + '],',
-        '    maxBounds: L.TileLayer.Swiss.latLngBounds',
+        '  crs: Swiss.EPSG_2056,',
+        '  layers: [' + mapLayers + '],',
+        '  maxBounds: Swiss.latLngBounds',
         '});',
         '',
-        'map.setView(L.TileLayer.Swiss.unproject_2056(L.point([2600000, 1200000])), 16);'
+        'map.setView(Swiss.unproject_2056(L.point([2600000, 1200000])), 16);'
     ].join('\n');
 
     var codepenOptions = {
         css: css,
         css_external: 'https://unpkg.com/leaflet@1.4.0/dist/leaflet.css',
+        editors: '001',
+        layout: 'left',
         html: '<div id="map"></div>',
         js: js,
         js_external: [
