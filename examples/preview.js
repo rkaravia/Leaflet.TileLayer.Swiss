@@ -6,19 +6,16 @@ var foregroundLayer = L.tileLayer.swiss(options);
 var layers = [foregroundLayer];
 
 if (options.format == 'png') {
-    foregroundLayer.setOpacity(0.5);
-    var backgroundLayer = L.tileLayer.swiss();
-    layers.unshift(backgroundLayer);
+  foregroundLayer.setOpacity(0.5);
+  var backgroundLayer = L.tileLayer.swiss();
+  layers.unshift(backgroundLayer);
 }
 
 var map = L.map('map', {
-    crs: L.TileLayer.Swiss.EPSG_2056,
-    layers: layers,
-    maxBounds: L.TileLayer.Swiss.latLngBounds
+  crs: L.TileLayer.Swiss.lv95,
+  layers: layers,
+  maxBounds: L.TileLayer.Swiss.latLngBounds
 });
 
-// Set zoom level such that all of Switzerland is visible
-map.fitBounds([
-    [5.96, 45.82],
-    [10.49, 47.81]
-]);
+// Center the map on Switzerland
+map.fitBounds(L.TileLayer.Swiss.viewBounds);

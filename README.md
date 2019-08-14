@@ -42,13 +42,13 @@ Most overlay layers are freely accessible, see
 ```javascript
 // Create a map with LV95 (EPSG:2056) CRS and default base map layer
 var map = L.map('map', {
-    crs: L.TileLayer.Swiss.EPSG_2056,
-    layers: [L.tileLayer.swiss()],
-    maxBounds: L.TileLayer.Swiss.latLngBounds
+  crs: L.TileLayer.Swiss.EPSG_2056,
+  layers: [L.tileLayer.swiss()],
+  maxBounds: L.TileLayer.Swiss.latLngBounds
 });
 
 // Center on EPSG:2056 coordinates [2600000, 1200000]
-map.setView(L.TileLayer.Swiss.unproject_2056(L.point([2600000, 1200000])), 16);
+map.setView(L.TileLayer.Swiss.unproject_2056(L.point(2600000, 1200000)), 16);
 ```
 
 ### Options
@@ -57,17 +57,17 @@ Options are shown with their default values.
 
 ```javascript
 L.tileLayer.swiss({
-    // Coordinate reference system. EPSG_2056 and EPSG_21871 are available.
-    crs: L.TileLayer.Swiss.EPSG_2056
-    // Image format (jpeg or png). Only one format is available per layer.
-    format: 'jpeg',
-    // Layer name.
-    layer: 'ch.swisstopo.pixelkarte-farbe',
-    // Maximum zoom. Availability of zoom levels depends on the layer.
-    maxZoom: 27,
-    // Timestamp. Most (but not all) layers have a 'current' timestamp.
-    // Some layers have multiple timestamps.
-    timestamp: 'current'
+  // Coordinate reference system. EPSG_2056 and EPSG_21871 are available.
+  crs: L.TileLayer.Swiss.EPSG_2056
+  // Image format (jpeg or png). Only one format is available per layer.
+  format: 'jpeg',
+  // Layer name.
+  layer: 'ch.swisstopo.pixelkarte-farbe',
+  // Maximum zoom. Availability of zoom levels depends on the layer.
+  maxZoom: 27,
+  // Timestamp. Most (but not all) layers have a 'current' timestamp.
+  // Some layers have multiple timestamps.
+  timestamp: 'current'
 });
 ```
 
@@ -86,14 +86,14 @@ In order to use EPSG:21781, both map and layer CRS have to be adapted:
 
 ```javascript
 var map = L.map('map', {
-    crs: L.TileLayer.Swiss.EPSG_21781,
-    layers: [L.tileLayer.swiss({
-        crs: L.TileLayer.Swiss.EPSG_21781
-    })],
-    maxBounds: L.TileLayer.Swiss.latLngBounds
+  crs: L.TileLayer.Swiss.EPSG_21781,
+  layers: [L.tileLayer.swiss({
+    crs: L.TileLayer.Swiss.EPSG_21781
+  })],
+  maxBounds: L.TileLayer.Swiss.latLngBounds
 });
 
-map.setView(L.TileLayer.Swiss.unproject_21781(L.point([600000, 200000])), 16);
+map.setView(L.TileLayer.Swiss.unproject_21781(L.point(600000, 200000)), 16);
 ```
 
 ## Attribution
