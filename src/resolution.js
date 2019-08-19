@@ -24,7 +24,7 @@ export function fromZoom(zoom) {
 
 export function toZoom(resolution) {
   const zoomNext = RESOLUTIONS.findIndex(
-    resolutionDescending => resolution >= resolutionDescending,
+    (resolutionDescending) => resolution >= resolutionDescending,
   );
   if (zoomNext === 0) {
     return 0;

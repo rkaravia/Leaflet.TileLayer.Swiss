@@ -42,6 +42,6 @@ Swiss.viewBounds = [
   lv95.projection.unproject(lv95.projection.bounds.max.add([padding, padding])),
 ];
 
-L.tileLayer.swiss = options => new Swiss(options);
+L.tileLayer.swiss = (options) => new Swiss(options);
 
 export default Swiss;
