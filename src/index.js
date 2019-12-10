@@ -8,8 +8,8 @@ const tileBounds = L.latLngBounds(
 );
 
 const switzerlandBounds = L.latLngBounds(
-  lv95.projection.unproject(L.point(2485000, 1075000)),
-  lv95.projection.unproject(L.point(2835000, 1295000)),
+  lv95.unproject(L.point(2485000, 1075000)),
+  lv95.unproject(L.point(2835000, 1295000)),
 );
 
 const urlsByCrs = {
@@ -22,7 +22,7 @@ L.CRS.EPSG2056 = lv95;
 
 const Swiss = L.TileLayer.extend({
   options: {
-    attribution: '<a href="https://www.swisstopo.admin.ch/en/home.html" target="_blank">swisstopo</a>',
+    attribution: '<a href="https://www.swisstopo.ch/" target="_blank">swisstopo</a>',
     bounds: tileBounds,
     crs: lv95,
     format: 'jpeg',
@@ -40,7 +40,6 @@ const Swiss = L.TileLayer.extend({
     L.TileLayer.prototype.initialize.call(this, url, this.options);
   },
 });
-
 
 L.tileLayer.swiss = (options) => new Swiss(options);
 

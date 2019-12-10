@@ -12,10 +12,9 @@ if (options.format == 'png') {
 }
 
 var map = L.map('map', {
-  crs: L.TileLayer.Swiss.lv95,
+  crs: L.CRS.EPSG2056,
   layers: layers,
-  maxBounds: L.TileLayer.Swiss.latLngBounds
+  maxBounds: layers[0].options.bounds
 });
 
-// Center the map on Switzerland
-map.fitBounds(L.TileLayer.Swiss.viewBounds);
+map.fitBounds(layers[0].options.switzerlandBounds);

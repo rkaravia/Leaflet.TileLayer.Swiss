@@ -4,13 +4,10 @@
 
 Leaflet.TileLayer.Swiss is a [Leaflet](https://leafletjs.com/) plugin for
 displaying national maps of Switzerland using WMTS services of
-[swisstopo](https://www.swisstopo.admin.ch/en/home.html).
+[swisstopo](https://www.swisstopo.ch/).
 This plugin is not affiliated with or endorsed by swisstopo.
 
-_Requires [Leaflet](https://leafletjs.com/), [Proj4js](http://proj4js.org/),
-[Proj4Leaflet](https://kartena.github.io/Proj4Leaflet/). Tested with the
-versions listed as peerDependencies in
-[package.json](https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/master/package.json)._
+_Requires [Leaflet](https://leafletjs.com/) version 1.x_
 
 ## Demo
 
@@ -22,33 +19,51 @@ versions listed as peerDependencies in
 
 ## Usage
 
-### swisstopo web access
+### Swisstopo web access
 
-Most of the base map layers come with some usage restriction which is enforced
-by checking the [HTTP Referer](https://en.wikipedia.org/wiki/HTTP_referer) of
-map tile requests.
+Before you start, please make sure that your application will be able to access the map tiles from Swisstopo.
+Most of the base map layers have a usage restriction and you will need to register
+with Swisstopo in order to use them.
 
-- `localhost` is always accepted as as a Referer.
-- In order to include a map on a website hosted at example.com, a
-  [swisstopo web access](https://shop.swisstopo.admin.ch/en/products/geoservice/swisstopo_geoservices/WMTS_info)
-  account for example.com is required. There is a free tier (no credit
-  card required) limited to 25 gigapixels per year.
+If you have your own domain (e.g. example.com), you can
+[sign up for Swisstopo web access](https://www.swisstopo.ch/webaccess). There is a free tier (no credit card required) limited to 25 gigapixels per year, and
+there are paid options if you need more.
 
-Most overlay layers are freely accessible, see
+If you do not have your own domain, sadly you are out of luck, as Swisstopo currently does not provide
+any other way to sign up for access to the map tiles.
+
+The usage restriction is enforced by checking the [HTTP Referer](https://en.wikipedia.org/wiki/HTTP_referer)
+header, so your application will automatically work once you have signed up.
+
+You will probably also want to test your application locally before publishing it. `localhost` is also accepted
+as a Referer, so if you
+[run a local web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server#Running_a_simple_local_HTTP_server), you should be able to access the map tiles.
+
+Swisstopo also provides some overlay layers which are freely accessible, see
 [list of layers and their accessiblity](https://api3.geo.admin.ch/api/faq/index.html#which-layers-are-available).
 
 ### Basic example
 
 ```javascript
-// Create a map with LV95 (EPSG:2056) CRS and default base map layer
+// Create map
 var map = L.map('map', {
-  crs: L.TileLayer.Swiss.EPSG_2056,
-  layers: [L.tileLayer.swiss()],
-  maxBounds: L.TileLayer.Swiss.latLngBounds
+  // Use LV95 (EPSG:2056) projection
+  crs: L.CRS.EPSG2056,
 });
 
-// Center on EPSG:2056 coordinates [2600000, 1200000]
-map.setView(L.TileLayer.Swiss.unproject_2056(L.point(2600000, 1200000)), 16);
+// Add Swiss layer with default options
+var swissLayer = L.tileLayer.swiss().addTo(map);
+
+// Limit map movement to layer bounds
+map.setMaxBounds(swissLayer.options.bounds)
+
+// Center the map on Switzerland
+map.fitBounds(swissLayer.options.switzerlandBounds);
+
+// Add a marker with a popup in Bern
+L.marker(L.CRS.EPSG2056.unproject(L.point(2600000, 1200000))).addTo(map)
+  .bindPopup('The old observatory')
+  .openPopup();
 ```
 
 ### Options
@@ -57,16 +72,16 @@ Options are shown with their default values.
 
 ```javascript
 L.tileLayer.swiss({
-  // Coordinate reference system. EPSG_2056 and EPSG_21871 are available.
-  crs: L.TileLayer.Swiss.EPSG_2056
+  // Coordinate reference system. EPSG2056 and EPSG21871 are available.
+  crs: L.CRS.EPSG2056
   // Image format (jpeg or png). Only one format is available per layer.
   format: 'jpeg',
   // Layer name.
   layer: 'ch.swisstopo.pixelkarte-farbe',
   // Maximum zoom. Availability of zoom levels depends on the layer.
-  maxZoom: 27,
+  maxNativeZoom: 27,
   // Timestamp. Most (but not all) layers have a 'current' timestamp.
-  // Some layers have multiple timestamps.
+  // Some layers have multiple versions with different timestamps.
   timestamp: 'current'
 });
 ```
@@ -85,21 +100,16 @@ Two CRS are commonly used in Switzerland:
 In order to use EPSG:21781, both map and layer CRS have to be adapted:
 
 ```javascript
-var map = L.map('map', {
-  crs: L.TileLayer.Swiss.EPSG_21781,
-  layers: [L.tileLayer.swiss({
-    crs: L.TileLayer.Swiss.EPSG_21781
-  })],
-  maxBounds: L.TileLayer.Swiss.latLngBounds
-});
+var map = L.map('map', { crs: L.CRS.EPSG21781 });
+var swissLayer = L.tileLayer.swiss({ crs: L.CRS.EPSG21781 }).addTo(map);
 
-map.setView(L.TileLayer.Swiss.unproject_21781(L.point(600000, 200000)), 16);
+map.setView(L.CRS.EPSG21781.unproject(L.point(600000, 200000)), 16);
 ```
 
 ## Attribution
 
 This plugin adds a map attribution which links to
-[swisstopo](https://www.swisstopo.admin.ch/en/home.html), the same as it is done
+[swisstopo](https://www.swisstopo.ch/), the same as it is done
 by the [official swisstopo API](https://api3.geo.admin.ch/).
 
 The
@@ -113,7 +123,7 @@ This plugin is licensed under the MIT license, see the LICENSE file.
 
 ## Acknowledgements
 
-Thanks to [swisstopo](https://www.swisstopo.admin.ch/en/home.html) and the
+Thanks to [swisstopo](https://www.swisstopo.ch/) and the
 [Geoinformation Act](https://www.admin.ch/opc/en/classified-compilation/20050726/index.html)
 for providing excellent geodata.
 
@@ -125,7 +135,7 @@ taught me how to use swisstopo layers in Leaflet a few year ago.
 
 - [Documentation](https://api3.geo.admin.ch/) and
   [source](https://github.com/geoadmin/ol3) of the official swisstopo API based
-  on OpenLayers 3
+  on OpenLayers 4
 - Terms of service for the
   [free](https://www.swisstopo.admin.ch/en/home/meta/conditions/geoservices/free-geoservice-license.html)
   and

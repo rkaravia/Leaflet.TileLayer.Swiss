@@ -14,3 +14,8 @@ map.setMaxBounds(swissLayer.options.bounds)
 
 // Center the map on Switzerland
 map.fitBounds(swissLayer.options.switzerlandBounds);
+
+// Add a marker with a popup in Bern
+L.marker(L.CRS.EPSG2056.unproject(L.point(2600000, 1200000))).addTo(map)
+  .bindPopup('The old observatory')
+  .openPopup();

@@ -1,24 +1,19 @@
 'use strict';
 
-var swissMap = L.tileLayer.swiss();
+var map = L.map('map', { crs: L.CRS.EPSG2056 });
 
-var swissImage = L.tileLayer.swiss({
+var mapLayer = L.tileLayer.swiss().addTo(map);
+var satelliteLayer = L.tileLayer.swiss({
   layer: 'ch.swisstopo.swissimage',
   maxNativeZoom: 28
 });
 
-var map = L.map('map', {
-  crs: L.TileLayer.Swiss.lv95,
-  layers: [swissMap],
-  maxBounds: L.TileLayer.Swiss.latLngBounds
-});
-
-// Center the map on Switzerland
-map.fitBounds(Swiss.viewBounds);
+map.setMaxBounds(mapLayer.options.bounds)
+map.fitBounds(mapLayer.options.switzerlandBounds);
 
 var baseMaps = {
-  'National Maps (color)': swissMap,
-  'SWISSIMAGE': swissImage
+  'Map': mapLayer,
+  'Satellite (Swissimage)': satelliteLayer
 };
 
 var overlayMaps = {
