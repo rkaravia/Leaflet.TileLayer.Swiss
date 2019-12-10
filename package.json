@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/rzoller/Leaflet.TileLayer.Swiss"
+    "url": "git://github.com/rkaravia/Leaflet.TileLayer.Swiss"
   },
   "files": [
     "/src",
     "/dist"
   ],
-  "author": "Roman Zoller",
+  "author": "Roman Karavia",
   "license": "MIT",
   "peerDependencies": {
     "leaflet": "^1.6.0"

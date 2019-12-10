@@ -10,15 +10,15 @@ This plugin is not affiliated with or endorsed by swisstopo.
 _Requires [Leaflet](https://leafletjs.com/), [Proj4js](http://proj4js.org/),
 [Proj4Leaflet](https://kartena.github.io/Proj4Leaflet/). Tested with the
 versions listed as peerDependencies in
-[package.json](https://github.com/rzoller/Leaflet.TileLayer.Swiss/blob/master/package.json)._
+[package.json](https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/master/package.json)._
 
 ## Demo
 
-- [Basic example](https://rzoller.ch/Leaflet.TileLayer.Swiss/examples/basic.html)
+- [Basic example](https://leaflet-tilelayer-swiss.karavia.ch/examples/basic.html)
   with one map layer
-- [Advanced example](https://rzoller.ch/Leaflet.TileLayer.Swiss/examples/advanced.html)
+- [Advanced example](https://leaflet-tilelayer-swiss.karavia.ch/examples/advanced.html)
   with multiple map layers
-- [List of all available layers](https://rzoller.ch/Leaflet.TileLayer.Swiss/examples/layers.html)
+- [List of all available layers](https://leaflet-tilelayer-swiss.karavia.ch/examples/layers.html)
 
 ## Usage
 
@@ -72,7 +72,7 @@ L.tileLayer.swiss({
 ```
 
 A list with all available layers and corresponding options is available
-[here](https://rzoller.ch/Leaflet.TileLayer.Swiss/examples/layers.html).
+[here](https://leaflet-tilelayer-swiss.karavia.ch/examples/layers.html).
 
 
 ### Coordinate reference systems (CRS)
