@@ -11,7 +11,7 @@ if (options.format == 'png') {
   layers.unshift(backgroundLayer);
 }
 
-var map = L.map('map', {
+var map = L.map('mapid', {
   crs: L.CRS.EPSG2056,
   layers: layers,
   maxBounds: layers[0].options.bounds

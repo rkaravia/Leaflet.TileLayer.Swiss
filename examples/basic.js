@@ -1,7 +1,7 @@
 'use strict';
 
 // Create map
-var map = L.map('map', {
+var map = L.map('mapid', {
   // Use LV95 (EPSG:2056) projection
   crs: L.CRS.EPSG2056,
 });

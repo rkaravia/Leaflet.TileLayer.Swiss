@@ -1,6 +1,6 @@
 'use strict';
 
-var map = L.map('map', { crs: L.CRS.EPSG2056 });
+var map = L.map('mapid', { crs: L.CRS.EPSG2056 });
 
 var mapLayer = L.tileLayer.swiss().addTo(map);
 var satelliteLayer = L.tileLayer.swiss({

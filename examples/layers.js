@@ -166,7 +166,7 @@ function editOnCodepen(layerId) {
     '',
     'var Swiss = L.TileLayer.Swiss;',
     '',
-    'var map = L.map("map", {',
+    'var map = L.map("mapid", {',
     '  crs: Swiss.EPSG_2056,',
     '  layers: [' + mapLayers + '],',
     '  maxBounds: Swiss.latLngBounds',
@@ -180,7 +180,7 @@ function editOnCodepen(layerId) {
     css_external: 'https://unpkg.com/leaflet@1.4.0/dist/leaflet.css',
     editors: '001',
     layout: 'left',
-    html: '<div id="map"></div>',
+    html: '<div id="mapid"></div>',
     js: js,
     js_external: [
       'https://unpkg.com/leaflet@1.4.0/dist/leaflet.js',

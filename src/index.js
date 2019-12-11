@@ -22,7 +22,7 @@ L.CRS.EPSG2056 = lv95;
 
 const Swiss = L.TileLayer.extend({
   options: {
-    attribution: '<a href="https://www.swisstopo.ch/" target="_blank">swisstopo</a>',
+    attribution: '<a href="https://www.swisstopo.ch/" target="_blank">Swisstopo</a>',
     bounds: tileBounds,
     crs: lv95,
     format: 'jpeg',
@@ -36,7 +36,7 @@ const Swiss = L.TileLayer.extend({
   },
   initialize(options) {
     L.setOptions(this, options);
-    const url = urlsByCrs[this.options.crs.code];
+    const url = this.options.url || urlsByCrs[this.options.crs.code];
     L.TileLayer.prototype.initialize.call(this, url, this.options);
   },
 });

@@ -1,7 +1,7 @@
 {
   "name": "leaflet-tilelayer-swiss",
   "version": "1.0.1",
-  "description": "Leaflet.TileLayer.Swiss is a Leaflet plugin for displaying national maps of Switzerland using WMTS services of swisstopo.",
+  "description": "Leaflet.TileLayer.Swiss is a Leaflet plugin for displaying national maps of Switzerland using WMTS services of Swisstopo.",
   "main": "dist/Leaflet.TileLayer.Swiss.js",
   "unpkg": "dist/Leaflet.TileLayer.Swiss.umd.js",
   "scripts": {
