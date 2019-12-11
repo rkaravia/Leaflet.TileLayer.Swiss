@@ -17,7 +17,7 @@ var TABLE_COLUMNS = [
   },
   {
     caption: 'Max Zoom',
-    attribute: 'maxZoom'
+    attribute: 'maxNativeZoom'
   },
   {
     caption: 'Default Timestamp',
@@ -36,7 +36,7 @@ var TABLE_COLUMNS = [
 var DEFAULT_OPTIONS = {
   format: 'jpeg',
   layer: 'ch.swisstopo.pixelkarte-farbe',
-  maxZoom: 27,
+  maxNativeZoom: 27,
   timestamp: 'current'
 }
 
@@ -119,7 +119,7 @@ function parseWMTSCapabilities(capabilitiesXML) {
       description: layer['ows:Abstract']['#text'],
       format: layer.ResourceURL['@attributes'].template.split('.').pop(),
       layer: layer['ows:Identifier']['#text'],
-      maxZoom: layer.TileMatrixSetLink.TileMatrixSet['#text'].split('_').pop(),
+      maxNativeZoom: layer.TileMatrixSetLink.TileMatrixSet['#text'].split('_').pop(),
       timestamp: layer.Dimension.Default['#text'],
       timestamps: getAllTimestamps(layer.Dimension.Value),
       title: layer['ows:Title']['#text']
@@ -146,7 +146,7 @@ function editOnCodepen(layerId) {
   var css = [
     'html,',
     'body,',
-    '#map {',
+    '#mapid {',
     '  width: 100%;',
     '  height: 100%;',
     '  margin: 0;',
@@ -155,38 +155,36 @@ function editOnCodepen(layerId) {
 
   var options = tileLayerOptions(layers[layerId]);
 
-  var mapLayers = 'new Swiss(options)';
+  var mapLayers = 'L.tileLayer.swiss(options)';
   if (options.format == 'png') {
-    mapLayers = 'new Swiss(), ' + mapLayers;
+    mapLayers = 'L.tileLayer.swiss(), ' + mapLayers;
     options.opacity = 0.5;
   }
 
   var js = [
     'var options = ' + JSON.stringify(options, null, 2) + ';',
     '',
-    'var Swiss = L.TileLayer.Swiss;',
+    'var layers = [' + mapLayers + '];',
     '',
     'var map = L.map("mapid", {',
-    '  crs: Swiss.EPSG_2056,',
-    '  layers: [' + mapLayers + '],',
-    '  maxBounds: Swiss.latLngBounds',
+    '  crs: L.CRS.EPSG2056,',
+    '  layers: layers,',
+    '  maxBounds: layers[0].options.bounds',
     '});',
     '',
-    'map.setView(Swiss.unproject_2056(L.point(2600000, 1200000)), 16);'
+    'map.fitBounds(layers[0].options.switzerlandBounds);'
   ].join('\n');
 
   var codepenOptions = {
     css: css,
-    css_external: 'https://unpkg.com/leaflet@1.4.0/dist/leaflet.css',
+    css_external: 'https://unpkg.com/leaflet@1.6.0/dist/leaflet.css',
     editors: '001',
     layout: 'left',
     html: '<div id="mapid"></div>',
     js: js,
     js_external: [
-      'https://unpkg.com/leaflet@1.4.0/dist/leaflet.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.4/proj4.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js',
-      'https://unpkg.com/leaflet-tilelayer-swiss@1.0.1/Leaflet.TileLayer.Swiss.js'
+      'https://unpkg.com/leaflet@1.6.0/dist/leaflet.js',
+      'https://unpkg.com/leaflet-tilelayer-swiss@2.0.0/Leaflet.TileLayer.Swiss.js'
     ].join(';')
   };
 
