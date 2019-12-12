@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+      Leaflet.TileLayer.Swiss
+    </title>
+    <meta property="og:title" content="Leaflet.TileLayer.Swiss" />
+    <meta
+      property="og:description"
+      content="Leaflet.TileLayer.Swiss is a Leaflet plugin for displaying national maps of Switzerland using map tiles from Swisstopo."
+    />
+    <meta
+      property="og:url"
+      content="https://leaflet-tilelayer-swiss.karavia.ch/"
+    />
+    <meta
+      property="og:image"
+      content="https://leaflet-tilelayer-swiss.karavia.ch/screenshot.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@primer/css@14.0.0/dist/primer.css"
+      integrity="sha384-LEc2zocpV8xQM8MjySLHUNcyJlEA+utWW3SptL3+gBD1YtSBS2o0ZUDi8G0kLXND"
+      crossorigin
+    />
+    <link rel="stylesheet" href="highlight.css" />
+    <style>
+      .centered-max640 {
+        box-sizing: content-box;
+        max-width: 640px;
+        margin: auto;
+        border: 1px solid #ccc;
+      }
+
+      .iframe-wrapper {
+        position: relative;
+        padding-top: 50%;
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      <h1>Leaflet.TileLayer.Swiss</h1>
+
+      <div class="centered-max640 mb-1">
+        <div class="iframe-wrapper">
+          <iframe
+            sandbox="allow-scripts allow-same-origin"
+            src="quick-start.html"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="d-flex flex-justify-center mb-3">
+        <a href="quick-start.html" target="_blank">Open example in new tab</a>
+      </div>
+
+      <p>
+        <a href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss"
+          >Leaflet.TileLayer.Swiss</a
+        >
+        is a <a href="https://leafletjs.com/">Leaflet</a> plugin for displaying
+        national maps of Switzerland using map tiles from
+        <a href="https://www.swisstopo.ch/">Swisstopo</a>. This plugin is not
+        affiliated with or endorsed by Swisstopo.
+      </p>
+
+      <h2 id="quick-start">Quick start</h2>
+
+      <p>
+        The following code explains all steps required to get started with
+        Leaflet.TileLayer.Swiss. It corresponds to the example at the top of the
+        page.
+      </p>
+
+      <div id="source-wrapper"></div>
+
+      <h2 id="advanced">Advanced usage</h2>
+      <p>
+        A
+        <a href="https://www.npmjs.com/package/leaflet-tilelayer-swiss"
+          >leaflet-tilelayer-swiss</a
+        >
+        npm package is available as well.
+      </p>
+      <p>
+        The
+        <a href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss"
+          >README on GitHub</a
+        >
+        contains more information, including full API documentation.
+      </p>
+
+      <p>
+        The <a href="multiple-layers.html">multiple layers example</a>
+        demonstrates advanced usage of the plugin.
+      </p>
+
+      <div class="centered-max640 mb-1">
+        <a href="multiple-layers.html">
+          <img
+            src="multiple-layers.png"
+            alt="Example with multiple layers"
+            class="d-block"
+          />
+        </a>
+      </div>
+
+      <h2 id="license">License</h2>
+      <p>
+        © Roman Karavia,
+        <a
+          href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/master/LICENSE"
+          >MIT license</a
+        >
+      </p>
+    </div>
+    <script
+      src="https://unpkg.com/anchor-js@4.2.2/anchor.min.js"
+      integrity="sha384-6dhz+LFvhiM4G9QxNyE07x2m2kV0EVfSRSnAaLtTNFSAMe2GA0MGr9r3Yghs03FG"
+      crossorigin
+    ></script>
+    <script src="highlight.pack.js"></script>
+    <script>
+      var container = document.getElementById("source-wrapper");
+      var filenames = ["quick-start.html", "quick-start.js"];
+      var fetchFiles = filenames.map(function(filename) {
+        return fetch(filename).then(function(response) {
+          return response.text().then(function(text) {
+            return {
+              filename: filename,
+              content: text
+            };
+          });
+        });
+      });
+      Promise.all(fetchFiles).then(function(files) {
+        files.forEach(function(file) {
+          var h3 = document.createElement("h3");
+          container.append(h3);
+          h3.textContent = file.filename;
+
+          var pre = document.createElement("pre");
+          pre.className = "highlight";
+          container.append(pre);
+          var code = document.createElement("code");
+          pre.append(code);
+          code.textContent = file.content;
+          hljs.highlightBlock(code);
+        });
+
+        anchors.add();
+      });
+    </script>
+  </body>
+</html>

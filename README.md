@@ -3,7 +3,7 @@
 # Leaflet.TileLayer.Swiss
 
 Leaflet.TileLayer.Swiss is a [Leaflet](https://leafletjs.com/) plugin for
-displaying national maps of Switzerland using WMTS services of
+displaying national maps of Switzerland using map tiles from
 [Swisstopo](https://www.swisstopo.ch/).
 This plugin is not affiliated with or endorsed by Swisstopo.
 
@@ -11,11 +11,11 @@ _Requires [Leaflet](https://leafletjs.com/) version 1.x_
 
 ## Demo
 
-- [Basic example](https://leaflet-tilelayer-swiss.karavia.ch/examples/basic.html)
-  with one map layer
-- [Advanced example](https://leaflet-tilelayer-swiss.karavia.ch/examples/advanced.html)
-  with multiple map layers
-- [List of all available layers](https://leaflet-tilelayer-swiss.karavia.ch/examples/layers.html)
+The [quick start example](https://leaflet-tilelayer-swiss.karavia.ch/)
+is a good place to start.
+
+There is also a [list of all available map layers](https://leaflet-tilelayer-swiss.karavia.ch/layers.html)
+and a [slighly more advanced example](https://leaflet-tilelayer-swiss.karavia.ch/advanced.html).
 
 ## Usage
 
@@ -40,7 +40,7 @@ Put a div element with a certain id where you want your map to be:
 
 Make sure the map container has a defined height, for example by setting it in CSS:
 
-```
+```css
 #mapid { height: 400px; }
 ```
 
@@ -91,7 +91,7 @@ L.tileLayer.swiss({
 ```
 
 A list with all available layers and corresponding options is available
-[here](https://leaflet-tilelayer-swiss.karavia.ch/examples/layers.html).
+[here](https://leaflet-tilelayer-swiss.karavia.ch/layers.html).
 
 ### Coordinate reference systems (CRS)
 

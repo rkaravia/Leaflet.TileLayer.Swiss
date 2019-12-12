@@ -4,20 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Preview</title>
+  <title>Quick start</title>
+
+  <!-- Include Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" crossorigin
         integrity="sha384-eS4bw6aEvhCSXWGP85ANR/N8isWKzT7P36NvcuTJGkrj6wsbxLVpXslrNXYHyseD">
+
   <style>
+    /* Set full width and height for the map */
     html, body, #mapid { height: 100%; margin: 0; }
   </style>
 </head>
 
 <body>
+  <!-- Element where the map will be attached -->
   <div id="mapid"></div>
+
+  <!-- Include Leaflet and Leaflet.TileLayer.Swiss JavaScript -->
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin
           integrity="sha384-wKOriz2x8/bF1D9t6PuKhSpxfhHeVi9huvyuxJrrShSJpi5+rmRIsM90UuWbdAYJ"></script>
   <script src="../dist/Leaflet.TileLayer.Swiss.umd.js"></script>
-  <script src="preview.js"></script>
+
+  <!-- Include quick start JavaScript -->
+  <script src="quick-start.js"></script>
 </body>
 
 </html>

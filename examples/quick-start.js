@@ -1,6 +1,4 @@
-'use strict';
-
-// Create map
+// Create map and attach id to element with id "mapid"
 var map = L.map('mapid', {
   // Use LV95 (EPSG:2056) projection
   crs: L.CRS.EPSG2056,
@@ -17,5 +15,5 @@ map.fitBounds(swissLayer.options.switzerlandBounds);
 
 // Add a marker with a popup in Bern
 L.marker(L.CRS.EPSG2056.unproject(L.point(2600000, 1200000))).addTo(map)
-  .bindPopup('The old observatory')
+  .bindPopup('Bern')
   .openPopup();
