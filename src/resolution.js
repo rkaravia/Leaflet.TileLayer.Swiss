@@ -23,9 +23,13 @@ export function fromZoom(zoom) {
 }
 
 export function toZoom(resolution) {
-  const zoomNext = RESOLUTIONS.findIndex(
-    (resolutionDescending) => resolution >= resolutionDescending,
-  );
+  let zoomNext = -1;
+  for (let i = 0; i < RESOLUTIONS.length; i += 1) {
+    if (resolution >= RESOLUTIONS[i]) {
+      zoomNext = i;
+      break;
+    }
+  }
   if (zoomNext === 0) {
     return 0;
   }
