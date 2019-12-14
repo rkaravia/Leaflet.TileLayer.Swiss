@@ -147,7 +147,6 @@ function editOnCodepen(layerId) {
     'html,',
     'body,',
     '#mapid {',
-    '  width: 100%;',
     '  height: 100%;',
     '  margin: 0;',
     '}'
@@ -184,7 +183,7 @@ function editOnCodepen(layerId) {
     js: js,
     js_external: [
       'https://unpkg.com/leaflet@1.6.0/dist/leaflet.js',
-      'https://unpkg.com/leaflet-tilelayer-swiss@2.0.0/Leaflet.TileLayer.Swiss.js'
+      'https://unpkg.com/leaflet-tilelayer-swiss@2.0.0/dist/Leaflet.TileLayer.Swiss.umd.js'
     ].join(';')
   };
 
