@@ -1,6 +1,6 @@
 {
   "name": "leaflet-tilelayer-swiss",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Leaflet.TileLayer.Swiss is a Leaflet plugin for displaying national maps of Switzerland using map tiles from Swisstopo.",
   "source": "src/index.js",
   "main": "dist/Leaflet.TileLayer.Swiss.cjs.js",
