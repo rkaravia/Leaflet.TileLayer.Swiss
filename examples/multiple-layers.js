@@ -8,8 +8,7 @@ var satelliteLayer = L.tileLayer.swiss({
   maxNativeZoom: 28
 });
 
-map.setMaxBounds(mapLayer.options.bounds)
-map.fitBounds(mapLayer.options.switzerlandBounds);
+map.fitSwitzerland();
 
 var baseMaps = {
   'Map': mapLayer,

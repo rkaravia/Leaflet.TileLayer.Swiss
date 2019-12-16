@@ -57,11 +57,8 @@ var map = L.map('mapid', {
 // Add Swiss layer with default options
 var swissLayer = L.tileLayer.swiss().addTo(map);
 
-// Limit map movement to layer bounds
-map.setMaxBounds(swissLayer.options.bounds)
-
 // Center the map on Switzerland
-map.fitBounds(swissLayer.options.switzerlandBounds);
+map.fitSwitzerland();
 
 // Add a marker with a popup in Bern
 L.marker(L.CRS.EPSG2056.unproject(L.point(2600000, 1200000))).addTo(map)
@@ -81,6 +78,9 @@ L.tileLayer.swiss({
   format: 'jpeg',
   // Layer name.
   layer: 'ch.swisstopo.pixelkarte-farbe',
+  // Minimum zoom. Levels below 14 exist for technical reasons,
+  // but you probably do not want to use them.
+  minZoom: 14,
   // Maximum zoom. Availability of zoom levels depends on the layer.
   maxNativeZoom: 27,
   // Timestamp. Most (but not all) layers have a 'current' timestamp.

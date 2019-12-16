@@ -167,11 +167,10 @@ function editOnCodepen(layerId) {
     '',
     'var map = L.map("mapid", {',
     '  crs: L.CRS.EPSG2056,',
-    '  layers: layers,',
-    '  maxBounds: layers[0].options.bounds',
+    '  layers: layers',
     '});',
     '',
-    'map.fitBounds(layers[0].options.switzerlandBounds);'
+    'map.fitSwitzerland();'
   ].join('\n');
 
   var codepenOptions = {
