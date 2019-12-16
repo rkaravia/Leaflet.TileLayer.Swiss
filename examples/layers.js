@@ -182,7 +182,7 @@ function editOnCodepen(layerId) {
     js: js,
     js_external: [
       'https://unpkg.com/leaflet@1.6.0/dist/leaflet.js',
-      'https://unpkg.com/leaflet-tilelayer-swiss@2.0.3/dist/Leaflet.TileLayer.Swiss.umd.js'
+      'https://unpkg.com/leaflet-tilelayer-swiss@2.1.0/dist/Leaflet.TileLayer.Swiss.umd.js'
     ].join(';')
   };
 

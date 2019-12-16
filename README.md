@@ -29,8 +29,8 @@ and a [slighly more advanced example](https://leaflet-tilelayer-swiss.karavia.ch
 Include this plugin after the Leaflet JavaScript file:
 
 ```html
-<script src="https://unpkg.com/leaflet-tilelayer-swiss@2.0.3/dist/Leaflet.TileLayer.Swiss.umd.js" crossorigin
-        integrity="sha384-bHBj6G7VG9PdK9RKiYRLB6PRJMpw8sRhZks+TGHAO3zgz8c9Z+lAaDmbv/zsQI3j"></script>
+<script src="https://unpkg.com/leaflet-tilelayer-swiss@2.1.0/dist/Leaflet.TileLayer.Swiss.umd.js" crossorigin
+        integrity="sha384-ylX6gm5jl451O0/PN7zKJp+CAJwSvVRu+GmV/Vep3h64jtcCmBs1hLH0LGB+oORb"></script>
 ```
 
 Put a div element with a certain id where you want your map to be:
