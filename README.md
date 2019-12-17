@@ -15,7 +15,7 @@ The [quick start example](https://leaflet-tilelayer-swiss.karavia.ch/)
 is a good place to start.
 
 There is also a [list of all available map layers](https://leaflet-tilelayer-swiss.karavia.ch/layers.html)
-and a [slighly more advanced example](https://leaflet-tilelayer-swiss.karavia.ch/advanced.html).
+and a [slighly more advanced example](https://leaflet-tilelayer-swiss.karavia.ch/multiple-layers.html).
 
 ## Usage
 
