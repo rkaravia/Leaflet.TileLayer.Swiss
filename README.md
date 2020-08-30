@@ -7,72 +7,35 @@ displaying national maps of Switzerland using map tiles from
 [Swisstopo](https://www.swisstopo.ch/).
 This plugin is not affiliated with or endorsed by Swisstopo.
 
-_Requires [Leaflet](https://leafletjs.com/) version 1.x_
-
 ## Demo
 
-The [quick start example](https://leaflet-tilelayer-swiss.karavia.ch/)
-is a good place to start.
-
-There is also a [list of all available map layers](https://leaflet-tilelayer-swiss.karavia.ch/layers.html)
-and a [slighly more advanced example](https://leaflet-tilelayer-swiss.karavia.ch/multiple-layers.html).
+[<img src="examples/screenshot.png" alt="Screenshot of Demo" width="640" height="320">](https://leaflet-tilelayer-swiss.karavia.ch/)
 
 ## Usage
 
-### Prerequisites
-
-- Leaflet library, see [Leaflet quick start guide](https://leafletjs.com/examples/quick-start/)
-- [Swisstopo web access](#swisstopo-web-access) if you want to publish your application
-
 ### Quick start
 
-Include this plugin after the Leaflet JavaScript file:
+Check out the [quick start documentation](https://leaflet-tilelayer-swiss.karavia.ch/#quick-start)
+to get started.
 
-```html
-<script src="https://unpkg.com/leaflet-tilelayer-swiss@2.1.0/dist/Leaflet.TileLayer.Swiss.umd.js" crossorigin
-        integrity="sha384-ylX6gm5jl451O0/PN7zKJp+CAJwSvVRu+GmV/Vep3h64jtcCmBs1hLH0LGB+oORb"></script>
-```
+### Examples
 
-Put a div element with a certain id where you want your map to be:
-
-```html
-<div id="mapid"></div>
-```
-
-Make sure the map container has a defined height, for example by setting it in CSS:
-
-```css
-#mapid { height: 400px; }
-```
-
-Set up the Swiss map:
-
-```javascript
-// Create map
-var map = L.map('mapid', {
-  // Use LV95 (EPSG:2056) projection
-  crs: L.CRS.EPSG2056,
-});
-
-// Add Swiss layer with default options
-var swissLayer = L.tileLayer.swiss().addTo(map);
-
-// Center the map on Switzerland
-map.fitSwitzerland();
-
-// Add a marker with a popup in Bern
-L.marker(L.CRS.EPSG2056.unproject(L.point(2600000, 1200000))).addTo(map)
-  .bindPopup('The old observatory')
-  .openPopup();
-```
+- Quick start ([preview](https://leaflet-tilelayer-swiss.karavia.ch/quick-start.html),
+source [html](examples/quick-start.html)/[js](examples/quick-start.js))
+- Using multiple layers ([preview](https://leaflet-tilelayer-swiss.karavia.ch/multiple-layers.html),
+source [html](examples/multiple-layers.html)/[js](examples/multiple-layers.js))
 
 ### Options
 
-Options are shown with their default values.
+Check out the
+**[list of all available map layers](https://leaflet-tilelayer-swiss.karavia.ch/layers.html)**
+to see recommended combinations of options.
+
+All available options are listed below together with their default values.
 
 ```javascript
 L.tileLayer.swiss({
-  // Coordinate reference system. EPSG2056 and EPSG21871 are available.
+  // Coordinate reference system. EPSG2056 and EPSG21781 are available.
   crs: L.CRS.EPSG2056
   // Image format (jpeg or png). Only one format is available per layer.
   format: 'jpeg',
@@ -91,9 +54,6 @@ L.tileLayer.swiss({
 });
 ```
 
-A list with all available layers and corresponding options is available
-[here](https://leaflet-tilelayer-swiss.karavia.ch/layers.html).
-
 ### Coordinate reference systems (CRS)
 
 Two CRS are commonly used in Switzerland:
@@ -110,40 +70,21 @@ var swissLayer = L.tileLayer.swiss({ crs: L.CRS.EPSG21781 }).addTo(map);
 map.setView(L.CRS.EPSG21781.unproject(L.point(600000, 200000)), 16);
 ```
 
-## Swisstopo web access
+## Swisstopo tile service
 
-You will need to register with Swisstopo if you want to publish an application that
-displays base map layers from Swisstopo.
-
-If you have your own domain (e.g. example.com), you can
-[sign up for Swisstopo web access](https://www.swisstopo.ch/webaccess). There is a free tier (no credit card required) limited to 25 gigapixels of map tiles per year, and there are paid options if you need more.
-
-If you do not have your own domain, sadly you are out of luck, as Swisstopo currently does not provide
-any other way to sign up for access to the map tiles.
-
-The usage restriction is enforced by checking the [HTTP Referer](https://en.wikipedia.org/wiki/HTTP_referer)
-header, so your application will automatically work once you have signed up.
-
-You will probably also want to test your application locally before publishing it. `localhost` is also accepted
-as a Referer, so if you
-[run a local web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server#Running_a_simple_local_HTTP_server), you should be able to access the map tiles.
-
-Swisstopo also provides some overlay layers which are freely accessible, see
-[list of layers and their accessiblity](https://api3.geo.admin.ch/api/faq/index.html#which-layers-are-available).
+Since 2021-03-01, Swisstopo maps are available as Open Government Data (OGD), and
+Swisstopo also provides a free tile service, for
+which no registration is required.
+In practice, this means that you can directly start using this plugin, and
+with the default configuration, the map will be loaded directly from Swisstopo
+servers.
 
 ## Attribution
 
 Swisstopo, like most map tile providers, requires that you display a copyright attribution below the map.
 
 This plugin adds a map attribution which links to
-[Swisstopo](https://www.swisstopo.ch/), the same as it is done
-by the [official Swisstopo API](https://api3.geo.admin.ch/).
-
-The
-[terms of service](https://www.swisstopo.admin.ch/en/home/meta/conditions/geoservices/free-geoservice-license.html)
-suggest using the phrase "Source: Federal Topographical Office (agreement no.)", which
-you may want to use if you have an agreement number from Swisstopo. You will probably
-get such a number if you sign up for paid access to the map tiles.
+[Swisstopo](https://www.swisstopo.ch/).
 
 ## License
 
@@ -164,8 +105,4 @@ taught me how to use Swisstopo layers in Leaflet a few year ago.
 - [Documentation](https://api3.geo.admin.ch/) and
   [source](https://github.com/geoadmin/ol3) of the official Swisstopo API based
   on OpenLayers 4
-- Terms of service for the
-  [free](https://www.swisstopo.admin.ch/en/home/meta/conditions/geoservices/free-geoservice-license.html)
-  and
-  [paid](https://www.swisstopo.admin.ch/en/home/meta/conditions/geoservices/geoservice-license.html)
-  tiers of Swisstopo
+
