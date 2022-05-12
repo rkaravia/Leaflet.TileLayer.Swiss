@@ -9,7 +9,7 @@ This plugin is not affiliated with or endorsed by Swisstopo.
 
 ## Demo
 
-[<img src="examples/screenshot.png" alt="Screenshot of Demo" width="640" height="320">](https://leaflet-tilelayer-swiss.karavia.ch/)
+[<img src="examples/screenshot.png" alt="Screenshot of Demo" width="640">](https://leaflet-tilelayer-swiss.karavia.ch/)
 
 ## Usage
 
