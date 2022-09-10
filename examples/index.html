@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>
-      Leaflet.TileLayer.Swiss
-    </title>
+    <title>Leaflet.TileLayer.Swiss</title>
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:title" content="Leaflet.TileLayer.Swiss" />
     <meta
@@ -153,18 +151,18 @@
     <script>
       var container = document.getElementById("source-wrapper");
       var filenames = ["quick-start.html", "quick-start.js"];
-      var fetchFiles = filenames.map(function(filename) {
-        return fetch(filename).then(function(response) {
-          return response.text().then(function(text) {
+      var fetchFiles = filenames.map(function (filename) {
+        return fetch(filename).then(function (response) {
+          return response.text().then(function (text) {
             return {
               filename: filename,
-              content: text
+              content: text,
             };
           });
         });
       });
-      Promise.all(fetchFiles).then(function(files) {
-        files.forEach(function(file) {
+      Promise.all(fetchFiles).then(function (files) {
+        files.forEach(function (file) {
           var h3 = document.createElement("h3");
           container.appendChild(h3);
           h3.textContent = file.filename;
