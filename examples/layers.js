@@ -175,13 +175,13 @@ function editOnCodepen(layerId) {
 
   var codepenOptions = {
     css: css,
-    css_external: 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css',
+    css_external: 'https://cdn.jsdelivr.net/npm/leaflet@1.8.0/dist/leaflet.css',
     editors: '001',
     layout: 'left',
     html: '<div id="mapid"></div>',
     js: js,
     js_external: [
-      'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js',
+      'https://cdn.jsdelivr.net/npm/leaflet@1.8.0/dist/leaflet.js',
       'https://cdn.jsdelivr.net/npm/leaflet-tilelayer-swiss@2.2.1/dist/Leaflet.TileLayer.Swiss.umd.js'
     ].join(';')
   };
