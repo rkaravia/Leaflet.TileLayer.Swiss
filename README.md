@@ -35,6 +35,8 @@ All available options are listed below together with their default values.
 
 ```javascript
 L.tileLayer.swiss({
+  // Attribution. The required attribution to Swisstopo is added by default.
+  attribution: '© <a href="https://www.swisstopo.ch/">Swisstopo</a>',
   // Coordinate reference system. EPSG2056 and EPSG21781 are available.
   crs: L.CRS.EPSG2056
   // Image format (jpeg or png). Only one format is available per layer.
@@ -46,6 +48,9 @@ L.tileLayer.swiss({
   minZoom: 14,
   // Maximum zoom. Availability of zoom levels depends on the layer.
   maxNativeZoom: 27,
+  // Plugin attribution. Display a small Swiss flag with a link to this plugin. 🇨🇭
+  // (Like the "🇺🇦 Leaflet" prefix, this is enabled by default but not required)
+  pluginAttribution: true,
   // Timestamp. Most (but not all) layers have a 'current' timestamp.
   // Some layers have multiple versions with different timestamps.
   timestamp: 'current',
