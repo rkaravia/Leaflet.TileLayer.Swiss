@@ -9,6 +9,7 @@
   "unpkg": "dist/Leaflet.TileLayer.Swiss.umd.js",
   "scripts": {
     "build": "rollup --config",
+    "build:docs": "cd build-docs && ./build-docs.sh",
     "dev": "rollup --config --watch",
     "eslint": "eslint .",
     "prepare": "npm run build",
