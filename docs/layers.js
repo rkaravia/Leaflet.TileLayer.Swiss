@@ -54,7 +54,7 @@ function xmlToJson(xml) {
 
   var result = {};
 
-  if (xml.nodeType == 1) {
+  if (xml.nodeType === 1) {
     // Element
     if (xml.attributes.length > 0) {
       result['@attributes'] = {};
@@ -64,7 +64,7 @@ function xmlToJson(xml) {
         result['@attributes'][attribute.nodeName] = attribute.nodeValue;
       }
     }
-  } else if (xml.nodeType == 3) {
+  } else if (xml.nodeType === 3) {
     // Text
     result = xml.nodeValue;
   }
@@ -74,10 +74,10 @@ function xmlToJson(xml) {
     for (var i = 0; i < xml.childNodes.length; i++) {
       var item = xml.childNodes.item(i);
       var nodeName = item.nodeName;
-      if (typeof (result[nodeName]) == 'undefined') {
+      if (typeof (result[nodeName]) === 'undefined') {
         result[nodeName] = xmlToJson(item);
       } else {
-        if (typeof (result[nodeName].push) == 'undefined') {
+        if (typeof (result[nodeName].push) === 'undefined') {
           var node = result[nodeName];
           result[nodeName] = [];
           result[nodeName].push(node);
@@ -119,7 +119,7 @@ function parseWMTSCapabilities(capabilitiesXML) {
       description: layer['ows:Abstract']['#text'],
       format: layer.ResourceURL['@attributes'].template.split('.').pop(),
       layer: layer['ows:Identifier']['#text'],
-      maxNativeZoom: layer.TileMatrixSetLink.TileMatrixSet['#text'].split('_').pop(),
+      maxNativeZoom: +layer.TileMatrixSetLink.TileMatrixSet['#text'].split('_').pop(),
       timestamp: layer.Dimension.Default['#text'],
       timestamps: getAllTimestamps(layer.Dimension.Value),
       title: layer['ows:Title']['#text']
@@ -130,7 +130,7 @@ function parseWMTSCapabilities(capabilitiesXML) {
 function tileLayerOptions(layer) {
   var options = {};
   for (var option in DEFAULT_OPTIONS) {
-    if (layer[option] != DEFAULT_OPTIONS[option]) {
+    if (layer[option] !== DEFAULT_OPTIONS[option]) {
       options[option] = layer[option];
     }
   }
@@ -155,7 +155,7 @@ function editOnCodepen(layerId) {
   var options = tileLayerOptions(layers[layerId]);
 
   var mapLayers = 'L.tileLayer.swiss(options)';
-  if (options.format == 'png') {
+  if (options.format === 'png') {
     mapLayers = 'L.tileLayer.swiss(), ' + mapLayers;
     options.opacity = 0.5;
   }
@@ -227,10 +227,10 @@ function makeTable(data, columns) {
   var dataTableDom = [
     '<"row"<"col-sm-12"f>>',
     '<"row"<"col-sm-12"tr>>',
-    '<"row"<"col-sm-5"i><"col-sm-7"p>>'
+    '<"row"<"col-sm-12"i>>'
   ].join('\n');
 
-   var dataTable = $(table).DataTable({
+  var dataTable = $(table).DataTable({
     dom: dataTableDom,
     language: {
       search: '_INPUT_',

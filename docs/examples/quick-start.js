@@ -5,7 +5,7 @@ var map = L.map('mapid', {
 });
 
 // Add Swiss layer with default options
-var swissLayer = L.tileLayer.swiss().addTo(map);
+L.tileLayer.swiss().addTo(map);
 
 // Center the map on Switzerland
 map.fitSwitzerland();

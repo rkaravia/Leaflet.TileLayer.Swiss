@@ -4,27 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Swisstopo layers</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables.net-bs4@1.10.20/css/dataTables.bootstrap4.min.css" integrity="sha384-EkHEUZ6lErauT712zSr0DZ2uuCmi3DoQj6ecNdHQXpMpFNGAQ48WjfXCE5n20W+R" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" crossorigin
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/datatables.net-bs4@1.10.20/css/dataTables.bootstrap4.min.css" crossorigin
+    integrity="sha384-EkHEUZ6lErauT712zSr0DZ2uuCmi3DoQj6ecNdHQXpMpFNGAQ48WjfXCE5n20W+R">
   <style>
     h1.page-title {
       margin-top: 30px;
       margin-bottom: 30px;
     }
-    
+
     #table_filter {
       text-align: left;
     }
-    
+
     #table_filter label {
       display: block;
     }
-    
+
     #table_filter input {
       margin: 0;
       width: 100%;
     }
-    
+
     img.edit-on-codepen {
       margin-top: -5px;
       margin-bottom: -5px;
@@ -39,15 +42,23 @@
       <div class="col-sm-12">
         <h1 class="page-title">List of all Swisstopo layers</h1>
         <p>
-          Generated from <a href="https://wmts.geo.admin.ch/EPSG/2056/1.0.0/WMTSCapabilities.xml">WMTSCapabilities.xml</a>.
+          This list of valid combinations of options for
+          <a href="/">Leaflet.TileLayer.Swiss</a>
+          has been generated from the
+          <a href="https://wmts.geo.admin.ch/EPSG/2056/1.0.0/WMTSCapabilities.xml">Web Map Tile Service (WMTS)
+            Capabilities</a>
+          document.
         </p>
       </div>
     </div>
     <table id="table" class="table table-striped"></table>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.js" integrity="sha384-mlceH9HlqLp7GMKHrj5Ara1+LvdTZVMx4S1U43/NxCvAkzIo8WJ0FE7duLel3wVo" crossorigin></script>
-  <script src="https://cdn.jsdelivr.net/npm/datatables.net@1.10.20/js/jquery.dataTables.min.js" integrity="sha384-AeZW6eNzCIvZk+GyhNRlwuIRoj0F/MIA7zrG18mDJkvRMNhj/06eipoH/N5W5iRD" crossorigin></script>
-  <script src="https://cdn.jsdelivr.net/npm/datatables.net-bs4@1.10.20/js/dataTables.bootstrap4.min.js" integrity="sha384-uiSTMvD1kcI19sAHJDVf68medP9HA2E2PzGis9Efmfsdb8p9+mvbQNgFhzii1MEX" crossorigin></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.js" crossorigin
+    integrity="sha384-mlceH9HlqLp7GMKHrj5Ara1+LvdTZVMx4S1U43/NxCvAkzIo8WJ0FE7duLel3wVo"></script>
+  <script src="https://cdn.jsdelivr.net/npm/datatables.net@1.10.20/js/jquery.dataTables.min.js" crossorigin
+    integrity="sha384-AeZW6eNzCIvZk+GyhNRlwuIRoj0F/MIA7zrG18mDJkvRMNhj/06eipoH/N5W5iRD"></script>
+  <script src="https://cdn.jsdelivr.net/npm/datatables.net-bs4@1.10.20/js/dataTables.bootstrap4.min.js" crossorigin
+    integrity="sha384-uiSTMvD1kcI19sAHJDVf68medP9HA2E2PzGis9Efmfsdb8p9+mvbQNgFhzii1MEX"></script>
   <script src="layers.js"></script>
 </body>
 

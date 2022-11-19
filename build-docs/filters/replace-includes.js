@@ -1,19 +1,19 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 function readJsonFromStdin() {
-  const stdin = process.stdin;
+  const { stdin } = process;
   const chunks = [];
 
   stdin.resume();
-  stdin.setEncoding("utf8");
+  stdin.setEncoding('utf8');
 
-  stdin.on("data", function (chunk) {
+  stdin.on('data', (chunk) => {
     chunks.push(chunk);
   });
 
   return new Promise((resolve) => {
-    stdin.on("end", () => {
+    stdin.on('end', () => {
       resolve(JSON.parse(chunks.join()));
     });
   });
@@ -22,14 +22,14 @@ function readJsonFromStdin() {
 function replaceIncludes(ast) {
   ast.blocks.forEach((block) => {
     const { t, c } = block;
-    if (t === "CodeBlock") {
-      const [identifier, classes] = c[0];
+    if (t === 'CodeBlock') {
+      const [_identifier, classes] = c[0];
       if (classes.length) {
         const filenameWithPrefix = classes[0].match(/(.*){(.*)}/);
         if (filenameWithPrefix !== null) {
           const [_, prefix, filename] = filenameWithPrefix;
           classes[0] = prefix;
-          c[1] = fs.readFileSync(path.join("../docs", filename), "utf8");
+          c[1] = fs.readFileSync(path.join('../docs', filename), 'utf8');
         }
       }
     }
@@ -54,6 +54,7 @@ async function run() {
    */
   replaceIncludes(input);
 
+  // eslint-disable-next-line no-console
   console.log(JSON.stringify(input));
 }
 

@@ -25,7 +25,7 @@ var overlayMaps = {
     format: 'png',
     layer: 'ch.astra.veloland',
     maxNativeZoom: 26
-  }),
+  }).addTo(map),
   'Mountainbiking in Switzerland': L.tileLayer.swiss({
     format: 'png',
     layer: 'ch.astra.mountainbikeland',
@@ -38,4 +38,4 @@ var overlayMaps = {
   }),
 };
 
-L.control.layers(baseMaps, overlayMaps).addTo(map);
+L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
