@@ -1,11 +1,13 @@
 ---
 pagetitle: Leaflet.TileLayer.Swiss
 document-css: false
+lang: en
 ---
 
-<h1 class="d-flex flex-justify-between">
+<h1 class="d-flex flex-wrap">
   Leaflet.TileLayer.Swiss
   <iframe
+    class="ml-auto"
     src="https://ghbtns.com/github-btn.html?user=rkaravia&repo=Leaflet.TileLayer.Swiss&type=star&count=true&size=large"
     frameborder="0"
     scrolling="0"
@@ -242,7 +244,7 @@ is currently available on a separate page.
 </p>
 
 <div class="d-flex flex-column flex-items-center">
-  <p class="my-2">Loads the default base map and adds a marker with a popup.</p>
+  <p class="my-2 text-center">Loads the default base map and adds a marker with a popup.</p>
   <p>
     <a class="btn btn-primary" href="examples/quick-start.html">
       View
@@ -267,7 +269,7 @@ is currently available on a separate page.
 </p>
 
 <div class="d-flex flex-column flex-items-center">
-  <p class="my-2">Configures multiple layers and adds a layer control to let the user choose.</p>
+  <p class="my-2 text-center">Configures multiple layers and adds a layer control to let the user choose.</p>
   <p>
     <a class="btn btn-primary" href="examples/multiple-layers.html">
       View
@@ -277,6 +279,63 @@ is currently available on a separate page.
       <span>HTML</span>
     </a>
     <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/multiple-layers.js">
+      <img src="img/code.svg" alt="JS Source" class="octicon color-bg-transparent" width="16" height="16">
+      <span>JS</span>
+    </a>
+  </p>
+</div>
+
+### Outdoor overlays
+
+<p class="example-wrapper mb-1">
+  <a href="examples/outdoor-overlays.html">
+    <iframe src="examples/outdoor-overlays.html"></iframe>
+  </a>
+</p>
+
+<div class="d-flex flex-column flex-items-center">
+  <p class="my-2 text-center">
+    Uses the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode">mix-blend-mode</a> CSS property
+    with value <code>multiply</code> to add outdoor route overlays without hiding map details underneath.
+  </p>
+  <p>
+    <a class="btn btn-primary" href="examples/outdoor-overlays.html">
+      View
+    </a>
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/outdoor-overlays.html">
+      <img src="img/code.svg" alt="HTML Source" class="octicon color-bg-transparent" width="16" height="16">
+      <span>HTML</span>
+    </a>
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/outdoor-overlays.js">
+      <img src="img/code.svg" alt="JS Source" class="octicon color-bg-transparent" width="16" height="16">
+      <span>JS</span>
+    </a>
+  </p>
+</div>
+
+### Coordinates
+
+<p class="example-wrapper mb-1">
+  <a href="examples/coordinates.html">
+    <iframe src="examples/coordinates.html"></iframe>
+  </a>
+</p>
+
+<div class="d-flex flex-column flex-items-center">
+  <p class="my-2 text-center">
+    Uses the <a href="https://github.com/mlevans/leaflet-hash">leaflet-hash</a> plugin to encode the current map view
+    in the URL. Shows LV95 coordinates of current mouse position and opens a popup with projected and geographic coordinates
+    when the user clicks on the map.
+  </p>
+  <p>
+    <a class="btn btn-primary" href="examples/coordinates.html">
+      View
+    </a>
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/coordinates.html">
+      <img src="img/code.svg" alt="HTML Source" class="octicon color-bg-transparent" width="16" height="16">
+      <span>HTML</span>
+    </a>
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/coordinates.js">
       <img src="img/code.svg" alt="JS Source" class="octicon color-bg-transparent" width="16" height="16">
       <span>JS</span>
     </a>

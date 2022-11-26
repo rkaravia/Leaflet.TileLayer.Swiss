@@ -16,26 +16,30 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-  'Hiking in Switzerland': L.tileLayer.swiss({
+  'Alps with livestock guardian dogs': L.tileLayer.swiss({
     format: 'png',
-    layer: 'ch.astra.wanderland',
-    maxNativeZoom: 26
+    layer: 'ch.bafu.alpweiden-herdenschutzhunde',
+    maxNativeZoom: 26,
+    opacity: 0.7
   }),
-  'Cycling in Switzerland': L.tileLayer.swiss({
+  'Wildlife reserves': L.tileLayer.swiss({
     format: 'png',
-    layer: 'ch.astra.veloland',
-    maxNativeZoom: 26
+    layer: 'ch.bafu.wrz-jagdbanngebiete_select',
+    maxNativeZoom: 26,
+    opacity: 0.7
   }).addTo(map),
-  'Mountainbiking in Switzerland': L.tileLayer.swiss({
+  'Designated wildlife areas': L.tileLayer.swiss({
     format: 'png',
-    layer: 'ch.astra.mountainbikeland',
-    maxNativeZoom: 26
+    layer: 'ch.bafu.wrz-wildruhezonen_portal',
+    maxNativeZoom: 26,
+    opacity: 0.7
   }),
-  'Skating in Switzerland': L.tileLayer.swiss({
+  'Slope classes over 30°': L.tileLayer.swiss({
     format: 'png',
-    layer: 'ch.astra.skatingland',
-    maxNativeZoom: 26
-  }),
+    layer: 'ch.swisstopo.hangneigung-ueber_30',
+    maxNativeZoom: 25,
+    opacity: 0.4
+  })
 };
 
 L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);

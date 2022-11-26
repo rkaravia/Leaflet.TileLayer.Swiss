@@ -1,6 +1,6 @@
 'use strict';
 
-var WMTS_CAPABILITIES_URL = 'https://wmts.geo.admin.ch/EPSG/2056/1.0.0/WMTSCapabilities.xml';
+var WMTS_CAPABILITIES_URL = 'https://wmts.geo.admin.ch/EPSG/2056/1.0.0/WMTSCapabilities.xml?lang=en';
 
 var TABLE_COLUMNS = [
   {
