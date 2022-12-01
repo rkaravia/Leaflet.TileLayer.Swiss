@@ -46,7 +46,7 @@ const layers = [
   },
 ];
 
-const map = L.map('mapid', { crs: L.CRS.EPSG2056 });
+const map = L.map('mapid', { crs: L.CRS.EPSG2056, zoomSnap: 0 });
 
 const defaultMap = L.tileLayer.swiss().addTo(map);
 
