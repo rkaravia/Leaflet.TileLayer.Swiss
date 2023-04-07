@@ -21,7 +21,7 @@ lang: en
   <iframe src="examples/quick-start.html"></iframe>
 </p>
 
-[Open example in new tab](examples/quick-start.html){.d-flex .flex-justify-center .mb-3}
+[Open example in new tab](examples/quick-start.html){.d-flex .flex-justify-center .mb-3 target="_blank"}
 
 [Leaflet.TileLayer.Swiss](https://github.com/rkaravia/Leaflet.TileLayer.Swiss)
 is a [Leaflet](https://leafletjs.com/) plugin for displaying national
@@ -249,11 +249,11 @@ is currently available on a separate page.
     <a class="btn btn-primary" href="examples/quick-start.html">
       View
     </a>
-    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/quick-start.html">
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/docs/examples/quick-start.html">
       <img src="img/code.svg" alt="HTML Source" class="octicon color-bg-transparent" width="16" height="16">
       <span>HTML</span>
     </a>
-    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/quick-start.js">
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/docs/examples/quick-start.js">
       <img src="img/code.svg" alt="JS Source" class="octicon color-bg-transparent" width="16" height="16">
       <span>JS</span>
     </a>
@@ -274,11 +274,11 @@ is currently available on a separate page.
     <a class="btn btn-primary" href="examples/multiple-layers.html">
       View
     </a>
-    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/multiple-layers.html">
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/docs/examples/multiple-layers.html">
       <img src="img/code.svg" alt="HTML Source" class="octicon color-bg-transparent" width="16" height="16">
       <span>HTML</span>
     </a>
-    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/multiple-layers.js">
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/docs/examples/multiple-layers.js">
       <img src="img/code.svg" alt="JS Source" class="octicon color-bg-transparent" width="16" height="16">
       <span>JS</span>
     </a>
@@ -302,11 +302,11 @@ is currently available on a separate page.
     <a class="btn btn-primary" href="examples/outdoor-overlays.html">
       View
     </a>
-    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/outdoor-overlays.html">
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/docs/examples/outdoor-overlays.html">
       <img src="img/code.svg" alt="HTML Source" class="octicon color-bg-transparent" width="16" height="16">
       <span>HTML</span>
     </a>
-    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/outdoor-overlays.js">
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/docs/examples/outdoor-overlays.js">
       <img src="img/code.svg" alt="JS Source" class="octicon color-bg-transparent" width="16" height="16">
       <span>JS</span>
     </a>
@@ -331,11 +331,11 @@ is currently available on a separate page.
     <a class="btn btn-primary" href="examples/coordinates.html">
       View
     </a>
-    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/coordinates.html">
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/docs/examples/coordinates.html">
       <img src="img/code.svg" alt="HTML Source" class="octicon color-bg-transparent" width="16" height="16">
       <span>HTML</span>
     </a>
-    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/examples/coordinates.js">
+    <a class="btn" href="https://github.com/rkaravia/Leaflet.TileLayer.Swiss/blob/main/docs/examples/coordinates.js">
       <img src="img/code.svg" alt="JS Source" class="octicon color-bg-transparent" width="16" height="16">
       <span>JS</span>
     </a>
