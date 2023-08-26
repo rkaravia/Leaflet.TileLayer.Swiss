@@ -1,0 +1,34 @@
+title: Leaflet.TileLayer.Swiss
+description: Leaflet.TileLayer.Swiss is a Leaflet plugin for displaying national maps of Switzerland using map tiles from Swisstopo.
+author: Roman Karavia
+
+theme: just-the-docs
+
+url: https://leaflet-tilelayer-swiss.karavia.ch/
+
+aux_links:
+  Code on GitHub: https://github.com/rkaravia/Leaflet.TileLayer.Swiss
+
+sass:
+  quiet_deps: true
+
+color_scheme: light_blue
+
+plugins:
+  - jekyll-octicons
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /img/screenshot.png
+
+clicky_site_id: 101229063
+
+collections:
+  examples:
+    order:
+      - quick-start.md
+      - multiple-layers.md
+      - outdoor-overlays.md
+      - coordinates.md

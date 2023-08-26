@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+gem "just-the-docs", "0.5.0"
+gem "jekyll-octicons", "19.5"

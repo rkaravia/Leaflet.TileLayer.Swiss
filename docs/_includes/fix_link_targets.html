@@ -1,0 +1,11 @@
+<script>
+window.addEventListener("load", () => {
+  document.querySelectorAll(".fix-link-targets").forEach(iframe => {
+    iframe.contentWindow.document.querySelectorAll("a").forEach(link => {
+      if (link.href.startsWith("https://")) {
+        link.target = "_blank";
+      }
+    });
+  });
+});
+</script>

@@ -1,0 +1,59 @@
+// Overrides of just-the-docs classes
+
+.site-title {
+    font-size: $font-size-6 !important;
+}
+
+// Octicons without using Primer CSS
+
+.octicon {
+    display: inline-block;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor;
+}
+
+// Custom styles
+
+.lts-stargazers-title {
+    display: flex;
+    flex-wrap: wrap;
+
+    iframe {
+        margin-left: auto;
+    }
+}
+
+.lts-quickstart-source-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.lts-example-wrapper {
+    box-sizing: content-box;
+    max-width: 640px;
+    margin: auto;
+    border: 1px solid #ccc;
+
+    iframe {
+        display: block;
+        width: 100%;
+        aspect-ratio: 2;
+        border: none;
+    }
+
+    a iframe {
+        pointer-events: none;
+    }
+}
+
+.lts-example-caption {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lts-btn-icon {
+    vertical-align: text-bottom;
+    margin-right: 4px;
+}

@@ -161,7 +161,7 @@ function editOnCodepen(layerId) {
   }
 
   var js = [
-    'var options = ' + JSON.stringify(options, null, 2) + ';',
+    'var options = ' + JSON.stringify(options, null, 2).replace(/"([a-z]+)":/ig, "$1:") + ';',
     '',
     'var layers = [' + mapLayers + '];',
     '',

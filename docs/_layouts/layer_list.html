@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<style>
+    html,
+    body,
+    .main,
+    .main-content {
+        height: 100%;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-content-wrap {
+        flex-grow: 1;
+    }
+
+    .lts-layer-list {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lts-layer-list > h1:first-child {
+        margin-top: .5rem;
+    }
+
+    .lts-layer-list iframe {
+        flex-grow: 1;
+        border: none;
+        margin-left: -15px;
+    }
+</style>
+
+<div class="lts-layer-list">
+    {{ content }}
+    <iframe src="layers.html"></iframe>
+    </div>
+</div>
