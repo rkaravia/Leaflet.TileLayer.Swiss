@@ -32,3 +32,4 @@ collections:
       - multiple-layers.md
       - outdoor-overlays.md
       - coordinates.md
+      - web-mercator.md

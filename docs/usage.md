@@ -94,8 +94,11 @@ with origin at `E = 2 600 000 m` / `N = 1 200 000 m`. The origin is not at `0 / 
 easting and northing, this is sometimes called "false easting" and "false northing".
 
 **LV95** is the CRS in which Swiss maps are currently produced, and **is the default** for this plugin.
-While it is technically possible to reproject maps to another CRS, this always involves changes in scale and/or rotation
-and decreases the quality of the map.
+While it is technically possible to reproject maps to another CRS, this involves changes in scale and/or rotation
+and decreases the quality of the map. For example, Swisstopo also offers an option to access maps in the
+[Web Mercator projection](https://en.wikipedia.org/wiki/Web_Mercator_projection),
+but I do not recommend using these due to the distortions in scale.
+See the [LV95 vs Web Mercator example]({{ site.baseurl }}{% link examples.md %}#web-mercator) for a visualization of this problem.
 
 Leaflet uses
 [EPSG](https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset) codes to refer to CRS.

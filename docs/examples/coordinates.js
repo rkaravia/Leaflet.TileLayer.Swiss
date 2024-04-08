@@ -91,10 +91,10 @@ function addMouseMoveCoordinates(map) {
       container.style.border = '2px solid #777';
       container.style.padding = '2px 4px';
       container.style.color = '#333';
-      container.style.fontFeatureSettings = 'tnum';
+      container.style.fontFeatureSettings = '"tnum"';
       var updateCoordinates = function (latlng) {
         var formattedCoordinates = formatLv95Coordinates(latlng, NARROW_NO_BREAK_SPACE)
-        container.innerHTML = '<b>LV95 Coordinates (E, N)</b><br>' + formattedCoordinates;
+        container.innerHTML = '<strong>LV95 Coordinates (E, N)</strong><br>' + formattedCoordinates;
       };
       map.on('mousemove', function (event) {
         updateCoordinates(event.latlng);

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LV95 vs Web Mercator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"
+        crossorigin integrity="sha384-o/2yZuJZWGJ4s/adjxVW71R+EO/LyCwdQfP5UWSgX/w87iiTXuvDZaejd3TsN7mf">
+  <style>
+    html, body, .map-container { height: 100%; margin: 0; }
+
+    .map-container {
+      display: flex;
+      gap: 4px;
+      background: #333;
+    }
+
+    @media (max-aspect-ratio: 1) {
+      .map-container {
+        flex-direction: column;
+      }
+    }
+
+    #map-left, #map-right {
+      flex-grow: 1;
+    }
+
+    .leaflet-control-info-overlay {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #777;
+      padding: 2px 4px;
+      color: #333;
+      font-feature-settings: "tnum";
+    }
+  </style>
+</head>
+
+<body>
+  <div class="map-container">
+    <div id="map-left"></div>
+    <div id="map-right"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"
+          crossorigin integrity="sha384-okbbMvvx/qfQkmiQKfd5VifbKZ/W8p1qIsWvE1ROPUfHWsDcC8/BnHohF7vPg2T6">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-tilelayer-swiss@2.3.0/dist/Leaflet.TileLayer.Swiss.umd.js"
+          crossorigin integrity="sha384-M4p8VfZ8RG6qNiPYA3vOCApQXAlLtnJXVPdydMYPAsvvIDsWp2dqqzF2OEeWWNhy">
+  </script>
+  <script src="web-mercator.js"></script>
+</body>
+
+</html>
