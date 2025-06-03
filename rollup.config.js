@@ -27,12 +27,13 @@ export default {
       globals: { leaflet: 'L' },
       banner,
       sourcemap: true,
+      exports: 'default',
     },
     {
-      file: pkg.main, format: 'cjs', banner, sourcemap: true,
+      file: pkg.main, format: 'cjs', banner, sourcemap: true, exports: 'default',
     },
     {
-      file: pkg.module, format: 'es', banner, sourcemap: true,
+      file: pkg.module, format: 'es', banner, sourcemap: true, exports: 'default',
     },
   ],
   plugins: [
