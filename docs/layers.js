@@ -115,9 +115,13 @@ function parseWMTSCapabilities(capabilitiesXML) {
   var capabilitiesJSON = xmlToJson(capabilitiesXML);
   var layers = capabilitiesJSON.Contents.Layer;
   return layers.map(function (layer) {
+    var resourceURL = layer.ResourceURL;
+    if (Array.isArray(resourceURL)) {
+      resourceURL = resourceURL[0];
+    }
     return {
       description: layer['ows:Abstract']['#text'],
-      format: layer.ResourceURL['@attributes'].template.split('.').pop(),
+      format: resourceURL['@attributes'].template.split('.').pop(),
       layer: layer['ows:Identifier']['#text'],
       maxNativeZoom: +layer.TileMatrixSetLink.TileMatrixSet['#text'].split('_').pop(),
       timestamp: layer.Dimension.Default['#text'],
