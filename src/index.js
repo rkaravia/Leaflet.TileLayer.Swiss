@@ -7,7 +7,9 @@ L.CRS.EPSG21781 = lv03;
 L.CRS.EPSG2056 = lv95;
 
 L.TileLayer.Swiss = SwissLayer;
-L.tileLayer.swiss = (options) => new SwissLayer(options);
+if (L.tileLayer) {
+  L.tileLayer.swiss = (options) => new SwissLayer(options);
+}
 
 L.Map.addInitHook(function setMaxBounds() {
   if (!this.options.maxBounds) {

@@ -3,39 +3,49 @@ import * as epsg from './epsg';
 import * as projection from './projection';
 import * as resolution from './resolution';
 
-const CRS = L.Class.extend({
-  includes: L.CRS,
+function scaleFn(zoom) {
+  return 1 / resolution.fromZoom(zoom);
+}
 
-  initialize(options) {
-    this.code = options.code;
-    this.projection = options.projection;
+function zoomFn(scale) {
+  return resolution.toZoom(1 / scale);
+}
 
-    const origin = this.projection.bounds.getBottomLeft();
-    this.transformation = new L.Transformation(1, -origin.x, -1, origin.y);
-    this.infinite = false;
-  },
+function distance(latLng1, latLng2) {
+  const point1 = this.project(latLng1);
+  const point2 = this.project(latLng2);
+  return point1.distanceTo(point2);
+}
 
-  scale(zoom) {
-    return 1 / resolution.fromZoom(zoom);
-  },
+function makeCRS(options) {
+  const origin = options.projection.bounds.getBottomLeft();
+  const transformation = new L.Transformation(1, -origin.x, -1, origin.y);
+  if (typeof L.CRS === 'object') {
+    return L.Util.extend({}, L.CRS, {
+      code: options.code,
+      projection: options.projection,
+      transformation,
+      scale: scaleFn,
+      zoom: zoomFn,
+      distance,
+    });
+  }
+  const CRS = class extends L.CRS {};
+  CRS.code = options.code;
+  CRS.projection = options.projection;
+  CRS.transformation = transformation;
+  CRS.scale = scaleFn;
+  CRS.zoom = zoomFn;
+  CRS.distance = distance;
+  return CRS;
+}
 
-  zoom(scale) {
-    return resolution.toZoom(1 / scale);
-  },
-
-  distance(latLng1, latLng2) {
-    const point1 = this.project(latLng1);
-    const point2 = this.project(latLng2);
-    return point1.distanceTo(point2);
-  },
-});
-
-export const lv03 = new CRS({
+export const lv03 = makeCRS({
   code: epsg.lv03,
   projection: projection.lv03,
 });
 
-export const lv95 = new CRS({
+export const lv95 = makeCRS({
   code: epsg.lv95,
   projection: projection.lv95,
 });

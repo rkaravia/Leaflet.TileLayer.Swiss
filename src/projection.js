@@ -3,14 +3,14 @@ import * as swissgrid from 'swissgrid';
 
 // Bounding box for tiles in LV03
 // Source: https://wmts.geo.admin.ch/EPSG/21781/1.0.0/WMTSCapabilities.xml
-const LV03_BOUNDS = L.bounds(
+const LV03_BOUNDS = new L.Bounds(
   [420000, 30000],
   [900000, 350000],
 );
 
 // Bounding box for tiles in LV95
 // Source: https://wmts.geo.admin.ch/EPSG/2056/1.0.0/WMTSCapabilities.xml
-const LV95_BOUNDS = L.bounds(
+const LV95_BOUNDS = new L.Bounds(
   [2420000, 1030000],
   [2900000, 1350000],
 );
@@ -20,11 +20,11 @@ function leafletProjection(swissgridProjection, bounds) {
     bounds,
     project: ({ lng, lat }) => {
       const [E, N] = swissgridProjection.project([lng, lat]);
-      return L.point(E, N);
+      return new L.Point(E, N);
     },
     unproject: ({ x: E, y: N }) => {
       const [lng, lat] = swissgridProjection.unproject([E, N]);
-      return L.latLng(lat, lng);
+      return new L.LatLng(lat, lng);
     },
   };
 }

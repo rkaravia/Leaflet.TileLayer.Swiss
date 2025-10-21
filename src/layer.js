@@ -26,7 +26,7 @@ export default L.TileLayer.extend({
     timestamp: 'current',
   },
   initialize(options) {
-    L.setOptions(this, options);
+    L.Util.setOptions(this, options);
     const url = this.options.url || urlsByCrs[this.options.crs.code];
     if (this.options.attribution && this.options.pluginAttribution) {
       this.options.attribution += pluginAttributionSuffix;
