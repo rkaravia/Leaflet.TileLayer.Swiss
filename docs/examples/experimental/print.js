@@ -286,6 +286,10 @@ async function renderScaledMapContainer(sizeMm, paddingMm) {
         width: ${inverseScalePercent};
         height: ${inverseScalePercent};
       }
+      .leaflet-container img.leaflet-tile {
+        /* Fix for https://github.com/Leaflet/Leaflet/issues/3575#issuecomment-3425291353 */
+        mix-blend-mode: initial !important;
+      }
       .leaflet-control-attribution, .leaflet-control-attribution a {
         font-size: 5mm;
         color: #333 !important;
