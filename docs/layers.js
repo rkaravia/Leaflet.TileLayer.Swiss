@@ -186,7 +186,7 @@ function editOnCodepen(layerId) {
     js: js,
     js_external: [
       'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js',
-      'https://cdn.jsdelivr.net/npm/leaflet-tilelayer-swiss@2.3.0/dist/Leaflet.TileLayer.Swiss.umd.js'
+      'https://cdn.jsdelivr.net/npm/leaflet-tilelayer-swiss@2.4.0/dist/Leaflet.TileLayer.Swiss.umd.js'
     ].join(';')
   };
 
