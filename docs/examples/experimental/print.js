@@ -268,6 +268,7 @@ async function renderScaledMapContainer(sizeMm, paddingMm) {
     <style>
       @page {
         size: ${sizeMm.x}mm ${sizeMm.y}mm;
+        margin: 0;
       }
       body {
         margin: ${paddingMm.y}mm ${paddingMm.x}mm;
