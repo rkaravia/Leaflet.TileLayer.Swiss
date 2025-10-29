@@ -249,13 +249,16 @@ async function print(map, settings) {
   const iframe = await renderScaledMapContainer(paperSizeMm, paddingMm);
   await renderScaledMap(iframe, map.getCenter(), zoom);
   iframe.contentWindow.print();
-  iframe.remove();
 }
 
 async function renderScaledMapContainer(sizeMm, paddingMm) {
   const contentSizeMm = sizeMm.subtract(paddingMm.multiplyBy(2));
   const scale = CSS_DPI / TARGET_DPI;
   const inverseScalePercent = `${100 / scale}%`;
+  const previousIframe = document.querySelector('.hidden-iframe');
+  if (previousIframe) {
+    previousIframe.remove();
+  }
   const iframe = document.createElement('iframe');
   iframe.className = 'hidden-iframe'
   iframe.srcdoc = `<!DOCTYPE html>
